@@ -18,9 +18,11 @@ class MongoDBManager:
     
     def __init__(self):
         """Initialize MongoDB connection"""
-        # Connection string from environment or direct
-        mongo_uri = os.getenv("MONGODB_URI", 
-            "mongodb+srv://arjun_mirabballi:F22_raptor@salesbot.qmaynew.mongodb.net/?retryWrites=true&w=majority&tlsAllowInvalidCertificates=true")
+        # Connection string from environment variable (required)
+        mongo_uri = os.getenv("MONGODB_URI")
+        
+        if not mongo_uri:
+            raise ValueError("MONGODB_URI environment variable is required. Please set it in your .env file.")
         
         try:
             self.client = MongoClient(
