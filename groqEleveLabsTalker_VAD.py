@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import vlc
 import re
@@ -56,7 +57,7 @@ def load_system_prompt(lead_name: str = "", company_name: str = "") -> str:
     
     return prompt
 
-def deepgram_tts_to_wav(text: str, output_file: str):
+def deepgram_tts_to_wav(text: str, output_file: str, return_audio_data: bool = False):
     """Generate speech using Deepgram Aura"""
     # Add pause before question marks for better intonation
     if text.strip().endswith('?'):
@@ -77,6 +78,8 @@ def deepgram_tts_to_wav(text: str, output_file: str):
     with open(output_file, "wb") as f:
         f.write(audio_content)
     
+    if return_audio_data:
+        return audio_content
     return output_file
 
 def play_audio(path: str):
@@ -179,7 +182,7 @@ def listen_for_speech(timeout: int = 30, return_audio: bool = False) -> tuple:
         start_time = time.time()
         speech_frames = 0
         silence_frames = 0
-        silence_threshold = 1  # ~0.5 seconds of silence (0.5s per chunk * 1)
+        silence_threshold = 2  # 1 second of silence (0.5s per chunk * 2 = 1s)
         speech_detected = False
         min_speech_frames = 2  # Need 1 second of speech before considering it real
         
@@ -484,16 +487,14 @@ def main(lead_name: str = "", company_name: str = "", voice_mode: bool = False):
                         except Exception as e:
                             print(f"[Audio error: {e}]")
                         sentence_count += 1
-                    clean_sentence = clean_text_for_tts(sentence)
-                    if clean_sentence:
-                        temp_file = os.path.join(TEMP_DIR, f"temp_audio_{sentence_count}.wav")
-                        try:
-                            deepgram_tts_to_wav(clean_sentence, temp_file)
-                            play_audio(temp_file)
-                            os.remove(temp_file)
-                        except Exception as e:
-                            print(f"[Audio error: {e}]")
-                        sentence_count += 1rgv) > 2 else ""
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python groqEleveLabsTalker_VAD.py <lead_name> <company_name> [--voice|-v]")
+        sys.exit(1)
+    
+    lead_name = sys.argv[1]
+    company_name = sys.argv[2]
     voice_mode = "--voice" in sys.argv or "-v" in sys.argv
     
     main(lead_name, company_name, voice_mode)
