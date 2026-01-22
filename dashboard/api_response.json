@@ -1,0 +1,77 @@
+﻿{
+    "call_metadata":  {
+                          "audio_recording_id":  null,
+                          "audio_recording_url":  "",
+                          "call_outcome":  "qualified_scheduled",
+                          "duration_seconds":  0,
+                          "timestamp":  "2026-01-21T14:45:16.213000"
+                      },
+    "company_name":  "ABC Manufacturing",
+    "contact_info":  {
+                         "email":  "test@abc.com",
+                         "phone":  "+91 9876543210",
+                         "whatsapp":  ""
+                     },
+    "conversation_history":  [
+                                 {
+                                     "content":  "System prompt...",
+                                     "role":  "system"
+                                 },
+                                 {
+                                     "content":  "Hello, I am Priya...",
+                                     "role":  "assistant"
+                                 },
+                                 {
+                                     "content":  "Yes, this is Test Executive Display",
+                                     "role":  "user"
+                                 },
+                                 {
+                                     "content":  "Great! I\u0027m calling from Essae Digitronics...",
+                                     "role":  "assistant"
+                                 },
+                                 {
+                                     "content":  "Yes, we need a weighbridge",
+                                     "role":  "user"
+                                 }
+                             ],
+    "conversation_transcript":  "Priya: Hello, I am Priya...\n\nLead: Yes, this is Test Executive Display\n\nPriya: Great! I\u0027m calling from Essae Digitronics...\n\nLead: Yes, we need a weighbridge",
+    "id":  "6970e61d5426d619e3380a9d",
+    "last_updated":  "Wed, 21 Jan 2026 14:45:16 GMT",
+    "lead_name":  "Test Executive Display",
+    "qualification_data":  {
+                               "call_outcome":  "qualified_scheduled",
+                               "capacity_tons":  "60",
+                               "company_name":  "ABC Manufacturing",
+                               "decision_maker":  true,
+                               "email":  "test@abc.com",
+                               "follow_up_required":  true,
+                               "lead_name":  "Test Executive Display",
+                               "phone_number":  "+91 9876543210",
+                               "platform_length_m":  "18",
+                               "preferred_day":  "tomorrow",
+                               "preferred_time_window":  "10AM-11AM",
+                               "requirement_type":  "new",
+                               "role":  "Operations Manager",
+                               "site_city":  "Mumbai",
+                               "site_state":  "Maharashtra",
+                               "timeline":  "1_to_3_months",
+                               "timestamp_local":  "2026-01-21 20:15:15",
+                               "vehicle_type":  "trucks"
+                           },
+    "requirement":  {
+                        "capacity":  "",
+                        "decision_maker":  "N/A",
+                        "installation_type":  "",
+                        "location":  "",
+                        "platform_length":  "",
+                        "timeline":  "1_to_3_months",
+                        "type":  "new"
+                    },
+    "scheduled_call":  {
+                           "alternate_time":  "",
+                           "contact_mode":  "phone",
+                           "preferred_day":  "tomorrow",
+                           "preferred_time":  "10AM-11AM"
+                       },
+    "status":  "new"
+}
